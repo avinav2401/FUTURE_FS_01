@@ -1,67 +1,98 @@
 import { Github, ExternalLink } from 'lucide-react';
 import { Reveal } from './Reveal';
 
-const Projects = () => {
+interface ProjectsProps {
+    onViewStealthBrowser?: () => void;
+}
+
+const Projects = ({ onViewStealthBrowser }: ProjectsProps) => {
     const projects = [
         {
-            title: 'Project Alpha',
-            description: 'Innovative digital solution and web experience focused on user engagement.',
-            tags: ['React', 'Design', 'Development'],
+            title: 'Stealth Browser',
+            description: 'A powerful, specialized browser application designed for specific workflow management, featuring advanced stealth capabilities, process monitoring, and custom hotkey controls. Features stealth mode, always-on-top window management, embedded Chromium browser with camo mode, virtual keyboard, process monitoring, and panic switch for emergencies.',
+            tags: ['C#', 'WebView2', 'Windows'],
             link: '#',
-            github: '#'
+            github: 'https://github.com/avinav2401/hidden-browser',
+            image: '/p1.jpg'
         },
         {
-            title: 'Project Beta',
-            description: 'Interactive web experience showcasing 3D capabilities and modern animations.',
-            tags: ['WebGL', 'Three.js', 'GSAP'],
-            link: '#',
-            github: '#'
+            title: 'Job Application Website',
+            description: 'A full-stack MERN job portal connecting job seekers with employers. Features real-time job tracking, company management, secure authentication, job search with filters, easy application process, and applicant management for recruiters.',
+            tags: ['MERN', 'MongoDB', 'React', 'Node.js'],
+            link: 'https://job-application-website-avinav2401s-projects.vercel.app/',
+            github: 'https://github.com/avinav2401/job-application-website',
+            image: '/job.jpg'
         },
         {
-            title: 'Project Gamma',
-            description: 'Next-gen e-commerce prototype with seamless payment integration.',
-            tags: ['Next.js', 'Stripe', 'Tailwind'],
-            link: '#',
-            github: '#'
+            title: 'Trigger Tracker',
+            description: 'A fast-paced shooting game where players control a spaceship and survive waves of enemies while earning points and currency. The game combines smooth gameplay mechanics, a dark-themed UI, and database-driven persistence for player stats, skins, and leaderboard.',
+            tags: ['Java', 'SQLite', 'Game Dev'],
+            link: 'https://avinav-pri.itch.io/trigger-tracker',
+            github: 'https://github.com/avinav2401/TDSG',
+            video: '/p3.mp4'
         },
         {
-            title: 'Project Delta',
-            description: 'Immersive portfolio concept exploring boundaries of web design.',
-            tags: ['UI/UX', 'Motion', 'Framer'],
-            link: '#',
-            github: '#'
+            title: 'Fish Rescue',
+            description: 'An exciting endless runner game set in the depths of the ocean. Guide a lively red fish through polluted waters while avoiding environmental hazards. The game aims to raise awareness about ocean pollution and the importance of preserving marine life. Through engaging gameplay, players learn about the impact of human activities on aquatic ecosystems and are inspired to take action in real life.',
+            tags: ['Game Dev', 'Unity', 'C#', 'WebGL'],
+            link: 'https://avinav-pri.itch.io/save-the-fish',
+            github: 'https://github.com/avinav2401/Fish-rescue-',
+            video: '/p4.mp4'
         }
     ];
 
     return (
-        <section id="projects" className="section">
+        <section id="projects" className="py-8">
             <div className="container">
                 <h2 className="title text-gradient-silver-blue">Featured Projects</h2>
                 <Reveal width="100%">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
                         {projects.map((project, index) => (
                             <div
                                 key={index}
                                 className="glass project-card animate-fade-up"
-                                style={{ borderRadius: '1rem', overflow: 'hidden', cursor: 'pointer', animationDelay: `${index * 0.1}s` }}
-                                onClick={() => window.open(project.link, '_blank')}
+                                style={{ borderRadius: '1.5rem', overflow: 'hidden', animationDelay: `${index * 0.1}s` }}
                             >
-                                <div style={{ height: '200px', background: '#27272a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#52525b' }}>
-                                    Project Preview
+                                <div style={{ height: '280px', background: '#27272a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#52525b', fontSize: '1.1rem', overflow: 'hidden' }}>
+                                    {project.video ? (
+                                        <video
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        >
+                                            <source src={project.video} type="video/mp4" />
+                                        </video>
+                                    ) : project.image ? (
+                                        <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    ) : (
+                                        'Project Preview'
+                                    )}
                                 </div>
-                                <div style={{ padding: '1.5rem', borderTop: '1px solid var(--glass-border)' }}>
-                                    <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem' }}>{project.title}</h3>
-                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1rem' }}>{project.description}</p>
+                                <div style={{ padding: '2rem', borderTop: '1px solid var(--glass-border)' }}>
+                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>{project.title}</h3>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '1.25rem', lineHeight: '1.7' }}>{project.description}</p>
                                     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
                                         {project.tags.map(tag => (
                                             <span key={tag} style={{ fontSize: '0.8rem', color: 'var(--accent)' }}>#{tag}</span>
                                         ))}
                                     </div>
                                     <div style={{ display: 'flex', gap: '1rem' }}>
-                                        <button className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
+                                        <button
+                                            className="btn btn-primary"
+                                            style={{ padding: '0.75rem 1.5rem', fontSize: '1.05rem' }}
+                                            onClick={() => {
+                                                if (project.title === 'Stealth Browser' && onViewStealthBrowser) {
+                                                    onViewStealthBrowser();
+                                                } else {
+                                                    window.open(project.link, '_blank');
+                                                }
+                                            }}
+                                        >
                                             View <ExternalLink size={16} />
                                         </button>
-                                        <a href={project.github} className="text-secondary hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }} onClick={(e) => e.stopPropagation()}>
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }} onClick={(e) => e.stopPropagation()}>
                                             <Github size={18} />
                                         </a>
                                     </div>

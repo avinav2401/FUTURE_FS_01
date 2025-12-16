@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { SiItchdotio, SiArtstation } from 'react-icons/si';
 
-const Navbar = () => {
+interface NavbarProps {
+    onAboutClick: () => void;
+}
+
+const Navbar = ({ onAboutClick }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -22,48 +27,79 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10 py-6' : 'bg-transparent py-8'}`}>
             <div className="container flex justify-between items-center">
-                <a href="#home" className="text-2xl font-bold text-indigo-500">Portfolio.</a>
+                <a href="#home" className="text-3xl font-bold text-indigo-500">Portfolio.</a>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-10">
                     {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="text-sm font-medium text-zinc-100 hover:text-indigo-500 transition-colors">
-                            {link.name}
-                        </a>
+                        link.name === 'About' ? (
+                            <button
+                                key={link.name}
+                                onClick={onAboutClick}
+                                className="text-base font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300 bg-transparent border-none cursor-pointer"
+                            >
+                                {link.name}
+                            </button>
+                        ) : (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="text-base font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300"
+                            >
+                                {link.name}
+                            </a>
+                        )
                     ))}
-                    <div className="w-[1px] h-6 bg-white/10 mx-4"></div>
-                    <div className="flex gap-4">
-                        <a href="#" target="_blank" className="hover:text-indigo-500 transition-colors"><Github size={20} /></a>
-                        <a href="#" target="_blank" className="hover:text-indigo-500 transition-colors"><Linkedin size={20} /></a>
+                    <div className="w-[1px] h-7 bg-white/10 mx-5"></div>
+                    <div className="flex gap-5">
+                        <a href="https://github.com/avinav2401" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><Github size={24} /></a>
+                        <a href="https://www.linkedin.com/in/avinav-priyadarshi-45705a2b0/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><Linkedin size={24} /></a>
+                        <a href="https://avinav-pri.itch.io/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><SiItchdotio size={24} /></a>
+                        <a href="https://www.artstation.com/avianvpri5" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><SiArtstation size={24} /></a>
                     </div>
                 </div>
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden">
                     <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                        {isOpen ? <X size={32} /> : <Menu size={32} />}
                     </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 p-4 flex flex-col items-center gap-6 animate-fade-up">
+                <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col items-center gap-8 animate-fade-up">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-lg font-medium text-zinc-100 hover:text-indigo-500 transition-colors"
-                        >
-                            {link.name}
-                        </a>
+                        link.name === 'About' ? (
+                            <button
+                                key={link.name}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    onAboutClick();
+                                }}
+                                className="text-xl font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300 bg-transparent border-none cursor-pointer"
+                            >
+                                {link.name}
+                            </button>
+                        ) : (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className="text-xl font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300"
+                            >
+                                {link.name}
+                            </a>
+                        )
                     ))}
-                    <div className="flex gap-6 mt-2">
-                        <a href="#" target="_blank" className="hover:text-indigo-500 transition-colors"><Github size={24} /></a>
-                        <a href="#" target="_blank" className="hover:text-indigo-500 transition-colors"><Linkedin size={24} /></a>
+                    <div className="flex gap-8 mt-4">
+                        <a href="https://github.com/avinav2401" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><Github size={28} /></a>
+                        <a href="https://www.linkedin.com/in/avinav-priyadarshi-45705a2b0/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><Linkedin size={28} /></a>
+                        <a href="https://avinav-pri.itch.io/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><SiItchdotio size={28} /></a>
+                        <a href="https://www.artstation.com/avianvpri5" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-500 hover:scale-125 transition-all duration-300"><SiArtstation size={28} /></a>
                     </div>
                 </div>
             )}

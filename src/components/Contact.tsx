@@ -1,11 +1,11 @@
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 import { Reveal } from './Reveal';
 
 const Contact = () => {
     return (
 
-        <section id="contact" className="section relative min-h-screen flex items-center">
+        <section id="contact" className="section relative flex items-center">
             {/* Interactive Spline Background */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Spline
@@ -30,48 +30,38 @@ const Contact = () => {
                     <h2 className="title text-gradient-silver-blue pointer-events-auto w-fit mb-12 text-3xl md:text-5xl font-bold">Get In Touch</h2>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-                        <div className="pointer-events-auto space-y-8">
-                            <div className="space-y-4">
-                                <h3 className="text-2xl font-semibold text-zinc-100 uppercase tracking-wide">Let's talk about everything!</h3>
-                                <p className="text-zinc-400 text-lg">
+                        <div className="pointer-events-auto space-y-10">
+                            <div className="space-y-6">
+                                <h3 className="text-3xl font-semibold text-zinc-100 uppercase tracking-wide">Let's talk about everything!</h3>
+                                <p className="text-zinc-400 text-xl">
                                     Don't like forms? Send me an email. 👋
                                 </p>
                             </div>
 
-                            <div className="space-y-6">
-                                <div className="flex items-center gap-4 group cursor-pointer">
-                                    <div className="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                                        <Mail size={20} />
+                            <div className="space-y-8">
+                                <a href="mailto:avinavpriyadarshi@gmail.com" className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
+                                    <div className="w-14 h-14 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                                        <Mail size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-sm text-zinc-400 font-medium uppercase tracking-wider">Mail Me</h4>
-                                        <p className="text-zinc-100 font-medium">hello@example.com</p>
+                                        <h4 className="text-base text-zinc-400 font-medium uppercase tracking-wider">Mail Me</h4>
+                                        <p className="text-zinc-100 font-medium text-lg">avinavpriyadarshi@gmail.com</p>
                                     </div>
-                                </div>
+                                </a>
 
-                                <div className="flex items-center gap-4 group cursor-pointer">
-                                    <div className="w-12 h-12 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                                        <MapPin size={20} />
+                                <a href="tel:+919106797847" className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
+                                    <div className="w-14 h-14 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                                        <Phone size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="text-sm text-zinc-400 font-medium uppercase tracking-wider">Location</h4>
-                                        <p className="text-zinc-100 font-medium">San Francisco, CA</p>
+                                        <h4 className="text-base text-zinc-400 font-medium uppercase tracking-wider">Contact</h4>
+                                        <p className="text-zinc-100 font-medium text-lg">+91 9106797847</p>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
 
-                        <form className="glass pointer-events-auto p-8 rounded-2xl flex flex-col gap-6 w-full">
-                            <div className="flex flex-col md:flex-row gap-6">
-                                <input type="text" placeholder="Name" className="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-indigo-500/50 focus:bg-white/10 transition-all placeholder:text-zinc-600" />
-                                <input type="email" placeholder="Email" className="flex-1 bg-white/5 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-indigo-500/50 focus:bg-white/10 transition-all placeholder:text-zinc-600" />
-                            </div>
-                            <input type="text" placeholder="Subject" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-indigo-500/50 focus:bg-white/10 transition-all placeholder:text-zinc-600" />
-                            <textarea rows={5} placeholder="Message" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-indigo-500/50 focus:bg-white/10 transition-all resize-none placeholder:text-zinc-600"></textarea>
-                            <button type="button" className="btn btn-primary w-full md:w-fit justify-center py-4 text-base font-semibold shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40">
-                                Send Message
-                            </button>
-                        </form>
+
 
                     </div>
                 </Reveal>
