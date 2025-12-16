@@ -4,7 +4,7 @@ import { Github, Linkedin, Menu, X } from 'lucide-react';
 import {
     SiSwift, SiApple, SiMongodb, SiMysql, SiGit, SiGithub, SiXcode,
     SiVercel, SiFigma, SiC, SiCplusplus,
-    SiJavascript, SiInstagram, SiLinkedin,
+    SiJavascript, SiLinkedin,
     SiHtml5, SiCss3, SiReact, SiNodedotjs, SiNextdotjs,
     SiTypescript, SiTailwindcss, SiThreedotjs, SiUnity, SiBlender, SiUnrealengine,
     SiItchdotio, SiArtstation
@@ -21,7 +21,7 @@ interface AboutModalProps {
 
 const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null!);
 
     if (!isOpen) return null;
 

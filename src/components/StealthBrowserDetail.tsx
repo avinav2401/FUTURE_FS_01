@@ -1,4 +1,4 @@
-import { ArrowLeft, Github, Download, Shield, Eye, Keyboard, Monitor, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Github, Download, Shield, Eye, Monitor, AlertTriangle } from 'lucide-react';
 import { useEffect } from 'react';
 
 interface StealthBrowserDetailProps {
