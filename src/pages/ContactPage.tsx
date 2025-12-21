@@ -9,6 +9,10 @@ const ContactPage = () => {
     const form = useRef<HTMLFormElement>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+    const [displayEmail, setDisplayEmail] = useState('avinavpriyadarshi@gmail.com');
+    const [isScrambling, setIsScrambling] = useState(false);
+    const [displayPhone, setDisplayPhone] = useState('+91 9106797847');
+    const [isScramblingPhone, setIsScramblingPhone] = useState(false);
 
     const sendEmail = (e: FormEvent) => {
         e.preventDefault();
@@ -32,6 +36,78 @@ const ContactPage = () => {
                     setSubmitStatus('error');
                 });
         }
+    };
+
+    const scrambleEmail = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (isScrambling) return;
+
+        setIsScrambling(true);
+        const originalEmail = 'avinavpriyadarshi@gmail.com';
+        const characters = '!@#$%^&*()_+-=[]{}|;:,.<>?1234567890';
+        let iterations = 0;
+        const maxIterations = 4;
+
+        const interval = setInterval(() => {
+            setDisplayEmail(
+                originalEmail
+                    .split('')
+                    .map((char, index) => {
+                        if (char === '@' || char === '.') return char; // Keep @ and .
+                        if (iterations >= maxIterations) return originalEmail[index];
+                        return characters[Math.floor(Math.random() * characters.length)];
+                    })
+                    .join('')
+            );
+
+            iterations++;
+
+            if (iterations > maxIterations) {
+                clearInterval(interval);
+                setDisplayEmail(originalEmail);
+                setIsScrambling(false);
+                // Open mailto after animation
+                setTimeout(() => {
+                    window.location.href = 'mailto:avinavpriyadarshi@gmail.com';
+                }, 200);
+            }
+        }, 100);
+    };
+
+    const scramblePhone = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (isScramblingPhone) return;
+
+        setIsScramblingPhone(true);
+        const originalPhone = '+91 9106797847';
+        const characters = '!@#$%^&*()_+-=[]{}|;:,.<>?1234567890';
+        let iterations = 0;
+        const maxIterations = 4;
+
+        const interval = setInterval(() => {
+            setDisplayPhone(
+                originalPhone
+                    .split('')
+                    .map((char, index) => {
+                        if (char === '+' || char === ' ') return char; // Keep + and space
+                        if (iterations >= maxIterations) return originalPhone[index];
+                        return characters[Math.floor(Math.random() * characters.length)];
+                    })
+                    .join('')
+            );
+
+            iterations++;
+
+            if (iterations > maxIterations) {
+                clearInterval(interval);
+                setDisplayPhone(originalPhone);
+                setIsScramblingPhone(false);
+                // Open tel after animation
+                setTimeout(() => {
+                    window.location.href = 'tel:+919106797847';
+                }, 200);
+            }
+        }, 100);
     };
 
     return (
@@ -78,23 +154,23 @@ const ContactPage = () => {
                             </div>
 
                             <div className="space-y-8">
-                                <a href="mailto:avinavpriyadarshi@gmail.com" className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
+                                <a href="mailto:avinavpriyadarshi@gmail.com" onClick={scrambleEmail} className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
                                     <div className="w-14 h-14 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
                                         <Mail size={24} />
                                     </div>
                                     <div>
                                         <h4 className="text-base text-zinc-400 font-medium uppercase tracking-wider">Mail Me</h4>
-                                        <p className="text-zinc-100 font-medium text-lg">avinavpriyadarshi@gmail.com</p>
+                                        <p className="text-zinc-100 font-medium text-lg font-mono">{displayEmail}</p>
                                     </div>
                                 </a>
 
-                                <a href="tel:+919106797847" className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
+                                <a href="tel:+919106797847" onClick={scramblePhone} className="flex items-center gap-5 group cursor-pointer hover:bg-white/5 p-4 rounded-2xl transition-all">
                                     <div className="w-14 h-14 bg-indigo-500/10 rounded-full flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
                                         <Phone size={24} />
                                     </div>
                                     <div>
                                         <h4 className="text-base text-zinc-400 font-medium uppercase tracking-wider">Contact</h4>
-                                        <p className="text-zinc-100 font-medium text-lg">+91 9106797847</p>
+                                        <p className="text-zinc-100 font-medium text-lg font-mono">{displayPhone}</p>
                                     </div>
                                 </a>
                             </div>
