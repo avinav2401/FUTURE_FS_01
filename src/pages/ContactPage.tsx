@@ -111,7 +111,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="min-h-screen relative flex items-start pt-20">
+        <div className="min-h-screen relative flex items-start pt-32">
             {/* Interactive Spline Background */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Spline
@@ -134,7 +134,7 @@ const ContactPage = () => {
             {/* Back Button */}
             <Link
                 to="/"
-                className="fixed top-8 left-8 z-50 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                className="fixed top-8 left-8 z-50 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
                 ← Back to Home
             </Link>
