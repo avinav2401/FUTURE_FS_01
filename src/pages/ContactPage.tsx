@@ -35,7 +35,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="min-h-screen relative flex items-center">
+        <div className="min-h-screen relative flex items-start pt-20">
             {/* Interactive Spline Background */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Spline
@@ -63,7 +63,7 @@ const ContactPage = () => {
                 ← Back to Home
             </Link>
 
-            <div className="container relative z-10 pointer-events-none py-32">
+            <div className="container relative z-10 pointer-events-none py-16 ml-auto mr-16 max-w-6xl">
                 <Reveal width="100%">
                     <h1 className="text-5xl md:text-7xl font-bold text-gradient-silver-blue pointer-events-auto w-fit mb-16">Get In Touch</h1>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
