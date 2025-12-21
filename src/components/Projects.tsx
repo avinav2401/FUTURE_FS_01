@@ -38,6 +38,22 @@ const Projects = ({ onViewStealthBrowser }: ProjectsProps) => {
             link: 'https://avinav-pri.itch.io/save-the-fish',
             github: 'https://github.com/avinav2401/Fish-rescue-',
             video: '/p4.mp4'
+        },
+        {
+            title: 'Luxe E-Commerce ( amazon clone )',
+            description: 'A modern Next.js 15 e-commerce platform inspired by Amazon, featuring real-time order tracking, smart search with filters, comprehensive admin panel, secure payment integration, and responsive design. Built with MongoDB and optimized for seamless shopping experience with INR pricing.',
+            tags: ['Next.js', 'TypeScript', 'MongoDB', 'Vercel'],
+            link: 'https://amazon-website-murex.vercel.app/',
+            github: 'https://github.com/avinav2401/FUTURE_FS_02',
+            image: '/am.jpg'
+        },
+        {
+            title: 'E-Commerce designe',
+            description: 'A full-stack MERN e-commerce application featuring secure JWT authentication, product catalog (cameras, trimmers, speakers), shopping cart with checkout, and Redux Toolkit state management. Rebranded from "Dynamic Coding with Amit" with enhanced features and responsive Tailwind CSS design.',
+            tags: ['MERN', 'Redux', 'MongoDB', 'Tailwind'],
+            link: 'https://avinav-shop.vercel.app/',
+            github: 'https://github.com/avinav2401/avinav-shop',
+            image: '/unnamed.jpg'
         }
     ];
 
