@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { SiItchdotio, SiArtstation } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
     onAboutClick: () => void;
@@ -42,6 +43,14 @@ const Navbar = ({ onAboutClick }: NavbarProps) => {
                             >
                                 {link.name}
                             </button>
+                        ) : link.name === 'Contact' ? (
+                            <Link
+                                key={link.name}
+                                to="/contact"
+                                className="text-base font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300"
+                            >
+                                {link.name}
+                            </Link>
                         ) : (
                             <a
                                 key={link.name}
@@ -84,6 +93,15 @@ const Navbar = ({ onAboutClick }: NavbarProps) => {
                             >
                                 {link.name}
                             </button>
+                        ) : link.name === 'Contact' ? (
+                            <Link
+                                key={link.name}
+                                to="/contact"
+                                onClick={() => setIsOpen(false)}
+                                className="text-xl font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300"
+                            >
+                                {link.name}
+                            </Link>
                         ) : (
                             <a
                                 key={link.name}
