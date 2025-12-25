@@ -40,7 +40,7 @@ const Projects = ({ onViewStealthBrowser }: ProjectsProps) => {
             video: '/p4.mp4'
         },
         {
-            title: 'Luxe E-Commerce ( amazon clone )',
+            title: 'Luxe E-Commerce',
             description: 'A modern Next.js 15 e-commerce platform inspired by Amazon, featuring real-time order tracking, smart search with filters, comprehensive admin panel, secure payment integration, and responsive design. Built with MongoDB and optimized for seamless shopping experience with INR pricing.',
             tags: ['Next.js', 'TypeScript', 'MongoDB', 'Vercel'],
             link: 'https://amazon-website-murex.vercel.app/',
