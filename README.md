@@ -234,11 +234,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - 🌐 Portfolio: [avinav.vercel.app](https://avinav.vercel.app)
 - 💼 Specialized in creating immersive, interactive web experiences
 
-## 🙏 Acknowledgments
-
-- Original inspiration from [henryjeff/portfolio-website](https://github.com/henryjeff/portfolio-website)
-- Built with modern web technologies and best practices
-- Designed for performance, accessibility, and user experience
 
 ---
 
