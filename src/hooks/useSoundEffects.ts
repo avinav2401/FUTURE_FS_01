@@ -34,6 +34,11 @@ export const useSoundEffects = () => {
 
         // Keyboard event handler
         const handleKeyDown = (e: KeyboardEvent) => {
+            // Don't play sound for repeated keypresses (when key is held down)
+            if (e.repeat) {
+                return;
+            }
+
             // Don't play sound for modifier keys alone
             if (['Shift', 'Control', 'Alt', 'Meta', 'CapsLock', 'Tab'].includes(e.key)) {
                 return;
