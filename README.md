@@ -1,73 +1,247 @@
-# React + TypeScript + Vite
+# Avinav Priyadarshi - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive portfolio website featuring an immersive 3D environment with a macOS-inspired interface. Built with React, TypeScript, and Three.js (via Spline), this portfolio showcases my work as a game developer and full-stack web developer.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [https://avinav.vercel.app/](https://avinav.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+### 🎨 Interactive 3D Environment
+- Fully interactive 3D workspace built with Spline
+- Smooth camera transitions and controls
+- Dynamic lighting and animations
+- Responsive design that works on both desktop and mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🖥️ macOS-Style Interface
+- **Terminal App**: Interactive terminal with custom commands including `about`, `help`, `projects`, `skills`, and `contact`
+- **Portfolio App**: Showcases my web development projects in a native-looking window
+- **Resume App**: Full-screen PDF viewer with download capabilities
+- **FaceTime App**: Camera integration for interactive demos
+- Desktop icons with smooth animations and window management
 
-## Expanding the ESLint configuration
+### 🎵 Audio Experience
+- Interactive keyboard typing sounds
+- Mouse click sound effects
+- Atmospheric office ambiance (optional)
+- Startup sound effects
+- Audio control system for managing sound preferences
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎯 Interactive Components
+- **Preloader**: Animated loading screen with terminal-style greetings
+- **Hero Section**: Eye-catching introduction with animated text
+- **About Modal**: Detailed information about background and expertise
+- **Projects Showcase**: Video demonstrations and interactive project cards
+- **Blender Showcase**: 3D modeling and animation work
+- **Experience Timeline**: Professional journey visualization
+- **Contact Form**: EmailJS integration for direct communication
+- **Stealth Browser Detail**: Advanced browser security project showcase
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🎨 Visual Effects
+- Shooting stars background animation
+- Scroll progress indicator
+- Reveal animations on scroll
+- Smooth transitions and hover effects
+- Glassmorphism UI elements
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
+- **React 19** - Modern UI library
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool
+- **React Router DOM** - Client-side routing
+
+### Styling & UI
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful icon library
+- **React Icons** - Additional icon sets
+- **Custom CSS** - Bespoke animations and effects
+
+### 3D & Visualization
+- **Spline Tool (React Spline)** - Interactive 3D graphics
+
+### Communication
+- **EmailJS** - Contact form integration
+
+### Development Tools
+- **ESLint** - Code linting and quality
+- **PostCSS & Autoprefixer** - CSS processing
+- **TypeScript ESLint** - Type-aware linting
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/avinav2401/FUTURE_FS_01.git
+   cd test
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables** (if needed)
+   - Configure EmailJS credentials for the contact form
+   - Add any necessary API keys
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   - Navigate to `http://localhost:5173`
+
+## 🚀 Build & Deploy
+
+### Development
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Production Build
+```bash
+npm run build
 ```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+### Lint Code
+```bash
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+test/
+├── public/                 # Static assets
+│   ├── resume.pdf         # PDF resume file
+│   ├── *.jpg, *.mp4       # Project images and videos
+│   └── static/            # Sound effects
+│       ├── keyboard/      # Keyboard typing sounds
+│       └── mouse/         # Mouse click sounds
+├── src/
+│   ├── components/        # React components
+│   │   ├── About.tsx
+│   │   ├── AboutModal.tsx
+│   │   ├── BlenderShowcase.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Preloader.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Reveal.tsx
+│   │   ├── ScrollProgress.tsx
+│   │   ├── ShootingStars.tsx
+│   │   └── StealthBrowserDetail.tsx
+│   ├── hooks/             # Custom React hooks
+│   │   └── useSoundEffects.ts
+│   ├── pages/             # Page components
+│   │   ├── HomePage.tsx
+│   │   └── ContactPage.tsx
+│   ├── assets/            # Images and resources
+│   ├── App.tsx            # Main application component
+│   ├── main.tsx           # Application entry point
+│   ├── index.css          # Global styles
+│   └── App.css            # App-specific styles
+├── vercel.json            # Vercel deployment config
+├── vite.config.ts         # Vite configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+└── package.json           # Project dependencies
+```
+
+## 🎮 Features In-Depth
+
+### Sound Effects System
+The portfolio includes an advanced sound effects system (`useSoundEffects` hook) that provides:
+- Real-time keyboard typing sounds
+- Interactive mouse click feedback
+- Background atmospheric sounds
+- Toggle controls for audio preferences
+
+### Desktop Applications
+macOS-style applications with full window management:
+- Draggable windows
+- Minimize, maximize, and close controls
+- Fullscreen mode support
+- Responsive sizing for mobile devices
+
+### Terminal Commands
+Interactive terminal with the following commands:
+- `about` - Detailed professional bio
+- `help` - List of available commands
+- `projects` - Project showcase
+- `skills` - Technical skills overview
+- `contact` - Contact information
+- `clear` - Clear terminal screen
+
+## 🌐 Deployment
+
+This project is configured for deployment on **Vercel** with optimized headers for security and performance. The `vercel.json` configuration handles routing and security headers.
+
+### Deploy to Vercel
+```bash
+vercel deploy
+```
+
+Or simply push to your GitHub repository connected to Vercel for automatic deployments.
+
+## 🎯 Browser Support
+
+- ✅ Chrome (recommended)
+- ✅ Firefox
+- ✅ Safari
+- ✅ Edge
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📱 Mobile Optimization
+
+The portfolio is fully responsive with:
+- Touch-friendly interactions
+- Optimized camera controls for mobile
+- Adaptive UI scaling
+- Mobile-specific zoom handling
+- Touch event support for 3D interactions
+
+## 🤝 Contributing
+
+This is a personal portfolio project, but feedback is always welcome! Feel free to:
+- Report bugs
+- Suggest features
+- Share ideas for improvements
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**What this means:**
+- ✅ Free to use for personal and commercial projects
+- ✅ Modify and distribute the code
+- ✅ Use for educational purposes
+- ❗ Must include the original copyright notice
+
+## 👨‍💻 About the Developer
+
+**Avinav Priyadarshi**
+- 🎮 Game Developer & Full-Stack Web Developer
+- 🌐 Portfolio: [avinav.vercel.app](https://avinav.vercel.app)
+- 💼 Specialized in creating immersive, interactive web experiences
+
+## 🙏 Acknowledgments
+
+- Original inspiration from [henryjeff/portfolio-website](https://github.com/henryjeff/portfolio-website)
+- Built with modern web technologies and best practices
+- Designed for performance, accessibility, and user experience
+
+---
+
+**Note**: This portfolio showcases advanced web development techniques including 3D graphics, audio integration, and complex state management. It's designed to demonstrate both technical skills and creative vision.
+
+Made with ❤️ by Avinav Priyadarshi
