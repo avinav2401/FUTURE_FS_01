@@ -1,7 +1,38 @@
 import { ArrowRight } from 'lucide-react';
 import { Reveal } from './Reveal';
+import { useState, useRef } from 'react';
 
 const Hero = () => {
+    const [transform, setTransform] = useState('');
+    const titleRef = useRef<HTMLHeadingElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
+        if (!titleRef.current) return;
+
+        const rect = titleRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Calculate distance from center (-1 to 1)
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        // Create 3D transform based on mouse position
+        const rotateY = deltaX * 15; // Rotate on Y axis
+        const rotateX = -deltaY * 15; // Rotate on X axis
+        const translateZ = Math.abs(deltaX) > 0.5 || Math.abs(deltaY) > 0.5 ? -20 : 0;
+
+        setTransform(
+            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`
+        );
+    };
+
+    const handleMouseLeave = () => {
+        setTransform('perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)');
+    };
+
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
 
@@ -39,7 +70,17 @@ const Hero = () => {
                             Hey There I'm
                         </p>
 
-                        <h1 className="text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-['Orbitron'] font-bold leading-[0.8] mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-500 to-purple-600 animate-gradient bg-[length:200%_auto]">
+                        <h1
+                            ref={titleRef}
+                            onMouseMove={handleMouseMove}
+                            onMouseLeave={handleMouseLeave}
+                            className="text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] font-['Orbitron'] font-bold leading-[0.8] mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-500 to-purple-600 animate-gradient bg-[length:200%_auto]"
+                            style={{
+                                transform,
+                                transition: 'transform 0.1s ease-out',
+                                transformStyle: 'preserve-3d',
+                            }}
+                        >
                             AVINAV
                         </h1>
 
