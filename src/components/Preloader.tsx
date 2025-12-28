@@ -25,7 +25,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
 
     // Start loading immediately
     useEffect(() => {
-        const duration = 3000; // 3 seconds for full count
+        const duration = 2000; // 2 seconds for full count
         const intervalTime = duration / 100;
 
         const timer = setInterval(() => {
